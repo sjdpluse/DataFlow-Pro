@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DataFlow Pro - Advanced Database Management System</title>
+    
+    <!-- External Libraries -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/alasql@4"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf-autotable/3.8.2/jspdf.plugin.autotable.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-datalabels@2.2.0"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    
+    <!-- Local Stylesheet -->
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <!-- Intro Screen -->
+    <div id="introScreen">
+        <div class="intro-content">
+            <h1 class="intro-logo"><i class="fas fa-database"></i> DataFlow Pro</h1>
+            <p class="intro-tagline">Your complete solution for advanced data management, real-time analytics, and powerful insights.</p>
+            <button id="startAppBtn" class="btn btn-primary btn-large">
+                <i class="fas fa-rocket"></i> Get Started
+            </button>
+            <p id="developer-name" class="developer-name" style="margin-top: 40px;"></p>
+        </div>
+    </div>
+
+    <div id="mainApp" style="display: none;">
+        <!-- Animated Background -->
+        <div class="bg-animation" id="bgAnimation">
+            <div class="pulse-ring" style="top: 10%; left: 20%;"></div>
+            <div class="pulse-ring" style="top: 70%; right: 15%; animation-delay: 2s;"></div>
+        </div>
+
+        <div class="container">
+            <!-- Header -->
+            <header class="header">
+                <h1><i class="fas fa-database"></i> DataFlow Pro</h1>
+                <p>Advanced Database Management System with Real-time Analytics & AI-Powered Insights</p>
+                <div class="stats-bar">
+                    <div class="stat-item">
+                        <i class="fas fa-table"></i>
+                        <span id="tableCount">0 Tables</span>
+                    </div>
+                    <div class="stat-item">
+                        <i class="fas fa-chart-line"></i>
+                        <span id="recordCount">0 Records</span>
+                    </div>
+                    <div class="stat-item live-indicator">
+                        <div class="live-dot"></div>
+                        <span>Live Sync</span>
+                    </div>
+                    <div class="stat-item">
+                        <i class="fas fa-shield-alt"></i>
+                        <span>256-bit Encrypted</span>
+                    </div>
+                </div>
+            </header>
+
+            <!-- Main Grid -->
+            <div class="main-grid">
+                <!-- Sidebar -->
+                <aside class="sidebar">
+                    <h3><i class="fas fa-layer-group"></i> Navigation</h3>
+                    <div class="nav-item active" data-section="dashboard">
+                        <i class="fas fa-tachometer-alt"></i>
+                        <span>Dashboard</span>
+                    </div>
+                    <div class="nav-item" data-section="tables">
+                        <i class="fas fa-table"></i>
+                        <span>Data Tables</span>
+                    </div>
+                    <div class="nav-item" data-section="analytics">
+                        <i class="fas fa-chart-bar"></i>
+                        <span>Analytics</span>
+                    </div>
+                    <div class="nav-item" data-section="queries">
+                        <i class="fas fa-search"></i>
+                        <span>Query Builder</span>
+                    </div>
+                    <div class="nav-item" data-section="backup">
+                        <i class="fas fa-download"></i>
+                        <span>Backup & Export</span>
+                    </div>
+                    <div class="nav-item" data-section="settings">
+                        <i class="fas fa-cog"></i>
+                        <span>Settings</span>
+                    </div>
+                    <div class="nav-item" data-section="help">
+                        <i class="fas fa-question-circle"></i>
+                        <span>Help & Docs</span>
+                    </div>
+                </aside>
+
+                <!-- Main Content -->
+                <main class="main-content">
+                    <!-- All <section> tags from the original file go here -->
+                    <!-- Dashboard Section -->
+                    <section id="dashboard" class="content-section">
+                        <!-- ... content from original file ... -->
+                    </section>
+                    <!-- Tables Section -->
+                    <section id="tables" class="content-section" style="display: none;">
+                        <!-- ... content from original file ... -->
+                    </section>
+                    <!-- Analytics Section -->
+                    <section id="analytics" class="content-section" style="display: none;">
+                        <!-- ... content from original file ... -->
+                    </section>
+                    <!-- Queries Section -->
+                    <section id="queries" class="content-section" style="display: none;">
+                        <!-- ... content from original file ... -->
+                    </section>
+                    <!-- Backup Section -->
+                    <section id="backup" class="content-section" style="display: none;">
+                        <!-- ... content from original file ... -->
+                    </section>
+                    <!-- Settings Section -->
+                    <section id="settings" class="content-section" style="display: none;">
+                        <!-- ... content from original file ... -->
+                    </section>
+                    <!-- Help Section -->
+                    <section id="help" class="content-section" style="display: none;">
+                        <!-- ... content from original file ... -->
+                    </section>
+                </main>
+            </div>
+        </div>
+
+        <!-- Add/Edit Record Modal -->
+        <div id="addRecordModal" class="modal">
+            <!-- ... content from original file ... -->
+        </div>
+
+        <!-- View Record Modal -->
+        <div id="viewRecordModal" class="modal">
+            <!-- ... content from original file ... -->
+        </div>
+
+        <!-- Toast Notification -->
+        <div id="toast" class="toast"></div>
+
+        <footer style="text-align: center; padding: 20px; color: rgba(244, 244, 245, 0.4); font-size: 14px; margin-top: 20px;">
+            Designed and developed by Sajad Mohammadi
+        </footer>
+    </div>
+
+    <!-- Local Scripts (Order is important) -->
+    <script src="js/api.js"></script>
+    <script src="js/ui.js"></script>
+    <script src="js/main.js"></script>
+</body>
+</html>
